@@ -1,0 +1,48 @@
+
+
+
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color ">
+    <a class="navbar-brand" href="{{url_for('main.index')}}"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('main.index')}}">All</a>
+                </li>
+               
+                <li class="nav-item">
+                  <a class="nav-link" id ="cats" data-toggle="tab" href="#jobs">Jobs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id ="cats" data-toggle="tab" href="#event">Events</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id ="cats"data-toggle="tab" href="#ads">Adverts</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-info" href="{{url_for('main.new_pitch')}}">Add Pitch</a>
+                </li>
+                
+                {% endif %}
+            </ul>
+        <ul class="navbar-nav ml-auto">
+            {% if current_user.is_authenticated %}            
+              <a class="btn btn-info" href="{{url_for('main.profile',name=current_user.username)}}"> My account</a>
+              <a class="btn btn-infor" href="{{url_for('auth.logout')}}"> Log out</a>
+            </div>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a  class="nav-link" href="{{url_for('auth.login')}}" style= 'margin-right:30px'><strong>Log In</strong></a>
+            </li>
+            <li class="nav-item">
+                    <a style= 'margin-right:30px' class="nav-link" href="{{url_for('auth.signup')}}"><strong>Sign Up</strong></a>
+                </li>
+            {%endif%}
+
+        </ul>
+    </div>
+</nav>

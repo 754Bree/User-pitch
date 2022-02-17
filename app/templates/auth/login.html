@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf%}
+{% block content %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='css/particle.css')}}">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+{% endblock %}
+
+
+<div class="container" style="width: 500px;">
+<!-- Material form login -->
+<div class="card mt-4">
+
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Sign in</strong>
+  </h5>
+  {% for message in get_flashed_messages() %}
+  <div class="alert alert-danger">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  {{ message }}
+  </div>
+{% endfor %}
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
+
+    {{wtf.quick_form(loginform)}}
+  </div>
+
+</div>
+<!-- Material form login -->
+{% endblock %}
+
+</div>
+
+

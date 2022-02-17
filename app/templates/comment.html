@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+<div class="container text-center">
+
+<div class="card  chat-room mb-2 " style="width: 500px;">
+    <div class="card-body">
+  
+					<div class="col-md-6 col-xl-8 pl-md-3 px-lg-auto px-0">
+			  
+					  <div class="chat-message" >
+			  
+						<ul class="list-unstyled chat-1 scrollbar-light-blue">
+						  <li class="d-flex justify-content-between mb-4">
+                            {% if all_comments %}
+                            {% for comment in all_comments %}
+							  <div class="chat-body white p-3 ml-2 z-depth-1 "style="width: 100%;">
+							  <div class="header">
+								<strong class="primary-font">{{comment.user.username}}</strong>
+								<small class="pull-right text-muted"><i class="far fa-clock"></i> 12 mins ago</small>
+							  </div>
+							  <hr class="w-100">
+							  <p class="mb-0">
+								{{ comment.comment }}
+							  </p>
+						
+							</div>
+						  </li>
+						  
+                        </ul>
+                        {% endfor %}
+						
+						  <div class="form-group basic-textarea">
+                            {{wtf.quick_form(form)}}
+                         </div>
+                         {% else %}
+                         <div class="chat-body white p-3 ml-2 z-depth-1 "style="width: 100%;">
+                             <div class="header">
+                               <strong class="primary-font">New User</strong>
+                               <small class="pull-right text-muted"><i class="far fa-clock"></i> 12 mins ago</small>
+                             </div>
+                             <hr class="w-100">
+                             <p class="mb-0">
+                              No comments currently
+                             </p>
+                       
+                           </div>
+                         </li>
+                         
+                       </ul>
+                     
+                       
+                         <div class="form-group basic-textarea">
+                           {{wtf.quick_form(form)}}
+                        </div>
+                        
+						
+	
+</div>
+{%endif%}
+</div>
+</div>
+{% endblock%}
+

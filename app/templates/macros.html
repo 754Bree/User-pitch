@@ -1,0 +1,58 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% macro display(piches) %}
+{% if piches %}
+{% for category in piches %}
+<div class="card rare-wind-gradient chat-room mb-2 ">
+    <div class="card-body">
+  
+      <!-- Grid row -->
+      <div class="row px-lg-2 px-2">
+  
+     
+					<!-- Grid column -->
+					<div class="col-md-6 col-xl-12 pl-md-3 px-lg-auto px-0">
+			  
+					  <div class="chat-message" >
+			  
+						<ul class="list-unstyled chat-1 scrollbar-light-blue">
+						  <li class="d-flex justify-content-between mb-4">
+							  <div class="chat-body white p-3 ml-2 z-depth-1 "style="width: 100%;">
+							  <div class="header">
+								<h6 class="font-weight-bold mb-3 text-center text-lg-left">{{category.title}}</h6>
+				
+								By:<strong class="primary-font">{{category.user.username}}</strong>
+							 </div>
+							  <hr class="w-100">
+							  <p class="mb-0">
+								{{category.post}}
+							  </p>
+							  <div><span class="foot m-1" >{{category.comment.count()}} <i class="fa fa-comments" style="color: blue;" aria-hidden="true"></i></span> 
+								<span class="foot m-1" > <a href="{{url_for('main.like',id = category.id)}}">
+									<i class="fa fa-thumbs-up" style="font-size:18px;color: green"></i></a> {{category.upvote.count()}}</span>
+								
+								
+								<span class="foot m-1"> <a href="{{url_for('main.dislike',id = category.id)}}"> <i class="fa fa-thumbs-down" style="color:red;"></i> {{category.downvote.count()}}</a></span></div>
+		
+							<a href="{{url_for('main.comment',pitch_id = category.id)}}" class="btn btn-info btn-sm"> Comment</a>
+						</div>
+							</div>
+						  </li>
+						  
+						</ul>
+		
+					  </div>   
+	  </div>
+	</div>
+</div>
+					{% endfor %}
+				{% else %}
+				<div class="card w-90 mb-3">
+					<div class="card-body">
+				
+						<p class="card-title">Category Has 0 posts</p>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+</div>
+{% endmacro %}
