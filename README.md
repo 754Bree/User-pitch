@@ -1,4 +1,4 @@
-# Pitchhome
+# User-Pitch
 
 > Pitchhome is a web application that allows users to use that one minute wisely. The users will submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them. The pitches are organized by category.
 
@@ -82,11 +82,11 @@ As a user I would like:
 
 ## Known Bugs
 
-> No known bugs yet but incase of any reach out to robertlagat38@gmail.com
+> No known bugs yet but incase of any reach out to brianaodhiambo754@gmail.com
 
 ## Support and Contact Details
 
-> You can reach out to me at bravinyegon@gmail.com
+> You can reach out to me at brianaodhiambo754@gmail.com
 for Reviews, Advice, Collaborations and Comments
 
 ## Licence
